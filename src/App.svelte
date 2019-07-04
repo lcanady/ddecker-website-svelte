@@ -1,6 +1,5 @@
 <script>
 	import Hero from './hero/Hero.svelte'
-</script>
-
+</script> 
 <Hero />
 

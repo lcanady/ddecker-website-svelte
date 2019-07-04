@@ -1,9 +1,11 @@
 <script>
     import Navbar from '../navbar/Navbar.svelte';
     import Form from './form.svelte'
+    import Menu from './menu.svelte'
 </script>
 
 <div class="wrapper">
+    <Menu />
     <div class="overlay">
         <Navbar />
         <div class="container">
@@ -11,12 +13,22 @@
                 <h2>Mindful and Calming</h2>
                 <h1>IT Consultation & Servicing</h1>
                 <h3>In A Chaotic Techincal World</h3>
-                <hr />
+                <img class="divider" src="./imgs/divider.png" alt= "golden divider">
                 <p>There needs to be a change in the way people feel about the technical world and the various connected services they use in their daily and professional lives. We believe that our customer's technical needs can be addressed in a calm, mindful and skillful way. With a combined 40 years of experience, there’s no problem too big (or small).</p>
+                <button class=contact>
+                  <a href='tel:#'>
+                    <img alt='Logo' src='./imgs/telephone.png'>
+                    <span class=light>CALL US</span>(971) 218-4561
+                  </a>
+                </button>
             </div>
             <div class="right">
                 <div class="form">
                     <Form />
+                </div>
+                <div class="contact">
+
+
                 </div>
             </div>
         </div>
@@ -48,8 +60,14 @@
     display: flex;
     margin: 0 auto;
     max-width: 1440px;
-    width: 95%;
+    width: 80%;
     
+}
+
+.light {
+  font-style: normal;
+  font-weight: lighter;
+  padding: 0 10px;
 }
 
 h1 { 
@@ -94,14 +112,63 @@ p {
 }
 
 .left {
-    max-width: 90%;
-    margin: auto 0 auto 0;
-    margin-right: 22%;
+    max-width: 80%;
+    margin: auto auto;
+    margin-right: 12%;
 }
 
-hr {
-    margin: 30px 0 30px 0;
-    margin-right: 600px;
-    border: 10px solid rgba(234, 207, 152, 0.3);
+.right {
+    padding: 0;
+    margin: 0;
 }
+
+.divider {
+  padding: 20px 0;
+}
+
+a, 
+	a:hover,
+	a:visited,
+	a:focus {
+		font-family: 'Muli', sans-serif;
+		text-decoration: none;
+		color: white; 
+		font-family: Muli;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 1.5rem;
+		display: flex;
+		align-items: center;
+
+	}
+
+button {
+  display: none;
+  margin: 40px auto;
+  padding: 20px;
+  border: #FFF;
+  background-color: rgba(0,0,0,.0);
+  border: 3px solid white;
+  border-radius: 5px
+}
+
+@media only screen and (max-width: 1450px) {
+  .container {
+      flex-direction: column;
+      width: 100%;
+  }
+  .left {
+      text-align: center;
+  }
+  .right {
+      width: 100%;
+  }
+
+
+
+  button { 
+    display: flex;
+    }
+}
+
 </style>

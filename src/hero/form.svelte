@@ -1,9 +1,9 @@
 <div class="wrapper">
     <div class="container">
-        <p>Get Your</p>
-        <p><span class="white">Free 30-Minute</span></p>
-        <p class="last">Consultation</p>
-        <form>
+        <p>Get Your
+    <span class="white">Free 30-Minute</span>
+        Consultation</p>
+        <form action="https://formspree.io/lem@ddeckerconsulting.com" method="POST">
             <input name="name" type="text" placeholder="Name">
             <input name="email" type="text" placeholder="email">
             <input name="phone" type="text" placeholder="Phone #">
@@ -24,7 +24,7 @@
     }
 
     p {
-        padding: 0;
+        padding: 50px 0;
         margin: 0;
         color: #14697E;
         font-family: Muli;
@@ -43,12 +43,8 @@
         color: white;
     }
 
-    .last {
-        padding-bottom: 50px;
-    }
-
     .container {
-        padding-top:50px;
+        padding:50px 0;
         height: 85vh;
     }
 

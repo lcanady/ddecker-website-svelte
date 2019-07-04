@@ -1,15 +1,28 @@
+<script>
+	import { count } from '../store/store.svelte';
+</script>
+
 <div id="navbar">
 	<div  class=inner>
-	<div class=logo>
-		<img alt='Logo' src='./imgs/logo.png'>
-	</div>
-		<a href='tel:#'>
-			<img alt='Logo' src='./imgs/telephone.png'>
-			<span class=light>CALL US</span>(971) 218-4561
-		</a>
-		<img class="hamburger" src="./imgs/hamburger.png" alt="Hamburger Menu" />
+		<div class=logo>
+			<img alt='Logo' src='./imgs/logo.png'>
+		</div>
+		<div class="contact">
+			<a href='tel:#'>
+				<img alt='Logo' src='./imgs/telephone.png'>
+				<span class=light>CALL US</span>(971) 218-4561
+			</a>
+			</div>
+			<img 
+				id="hamburger" 
+				src="./imgs/hamburger.png" 
+				alt="Hamburger Menu"
+				
+			/> {$count}
+		
 	</div>
 </div>
+
 
 <style>
 	#navbar {
@@ -26,7 +39,7 @@
 		
         max-width: 1440px;
         height: 100%;
-		width: 95%;
+		width: 80%;
 		align-items: center;
 		margin: 0 auto;
 	}
@@ -57,14 +70,21 @@
 		align-items: center;
 	}
 
-	.light{ 
+	.light { 
 		font-weight: lighter;
 		padding-left: 20px;
 		padding-right: 20px;
 	}
 
-	.hamburger{
+	#hamburger {
 		padding-left: 40px;
 	}
 
+	.contact {
+		display: flex;
+	}
+
+@media only screen and (max-width: 1450px) {
+  .contact {display: none;}
+}
 </style>
