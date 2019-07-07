@@ -1,5 +1,9 @@
 <script>
-	import { count } from '../store/store.svelte';
+	import { visible } from '../store/store.js';
+
+	const toggleVisible = () => {
+		visible.toggle()
+	}
 </script>
 
 <div id="navbar">
@@ -13,12 +17,13 @@
 				<span class=light>CALL US</span>(971) 218-4561
 			</a>
 			</div>
+			<div class="hamburger" on:click={toggleVisible}>
 			<img 
 				id="hamburger" 
 				src="./imgs/hamburger.png" 
-				alt="Hamburger Menu"
-				
-			/> {$count}
+				alt="Hamburger Menu"	
+			/> 
+			</div>
 		
 	</div>
 </div>
@@ -78,6 +83,7 @@
 
 	#hamburger {
 		padding-left: 40px;
+		cursor: pointer; 
 	}
 
 	.contact {

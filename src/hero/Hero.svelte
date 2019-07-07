@@ -156,9 +156,11 @@ button {
   .container {
       flex-direction: column;
       width: 100%;
+      height: 100%;
   }
   .left {
       text-align: center;
+      font-size: 1.5rem;
   }
   .right {
       width: 100%;

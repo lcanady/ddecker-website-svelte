@@ -1,43 +1,43 @@
-<div id="menuOverlay">
-{ #if visible}
-    <div id="menu" transition:fly="{{ x: 600, duration: 1000 }}">
-        <div class="contact">
+
+<script>
+    import { visible } from '../store/store.js';
+    import { slide , fade, fly } from 'svelte/transition';
+    import { quintOut } from 'svelte/easing';
+
+</script>
+
+
+{#if $visible}
+<div id="menuOverlay" transition:fade>
+    <div id="menu" transition:fly="{{ delay:500, y:100, duration: 400}}">
+       <div class="contact" transition:fade >
 			<a href='tel:#'>
 				<img alt='Logo' src='./imgs/telephone.png'>
 				<span class=light>CALL US</span>(971) 218-4561
 			</a>
-            <div id='close'>
-                <img src='./imgs/close_menu.png' alt="close Button" on:click={closeMenu}>
+            <div id="close"
+                on:click={()=> visible.toggle()}
+            >
+                &times;
             </div>
         </div>
-        <div id="links">
-            <ul>
-                <li><a href="#" class="light">Pricing</a></li>
-                <li><a href="#" class="light">Education</a></li>
-                <li><a href="#" class="light">Services</a></li>
-                <li><a href="#" class="light">resources</a></li>
-                <li><a href="#" class="light">Blog</a></li>
-
-
-            </ul>
-        </div>	
-	</div>
-    {/if}
+    </div>
 </div>
-
-<script>
-    import { fly } from 'svelte/transition';
-    let visible = false;
-    const closeMenu = () => {
-        const menu = document.getElementById('menu');
-        const overlay = document.getElementById('menuOverlay');
-        menu.style.display = 'None';
-        overlay.style.display = 'None';
-
-    } 
-</script>
+{/if}
 
 <style>
+#menu {
+    position:relative;
+    display: flex;
+    margin-left: auto;
+    height: 100vh;
+    width: 620px;
+    background-image: url('/imgs/abstract-bg-blue.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 #links {
     padding-left: 40px;
     padding-top: 150px;
@@ -58,30 +58,15 @@
 
 #menuOverlay { 
     position: Absolute;
-    display: none;
+    display: block;
+    opacity: 1;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(0, 0, 0, .5);
     z-index: 2;
 }
-
-#menu { 
-    display: none;
-    position: relative;
-    height: 100%;
-    background-image: url('./imgs/abstract-bg-blue.png');
-    background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-    width: 700px;
-    margin-left: auto;
-    z-index: 3;
-    box-shadow: -10px 0 25px rgba(0,0,0,.2);
-
-}
-
 
 
 a, 
@@ -121,10 +106,15 @@ a,
         padding-left: 50px;
 	}
 
-    #close {
+    #close{
         display: flex;
-       margin-right: 130px;
+        color:white;
+        font-size: 3rem;
+        font-weight: bold;     
+       margin-right: 80px;
         margin-left: auto;
+        cursor: pointer;
+
     }
 
 </style>
